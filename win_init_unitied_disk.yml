@@ -1,0 +1,9 @@
+- name: Initialize and format uninitialized disks
+  hosts: windows
+  tasks:
+    - name: Initialize uninitialized disks
+      win_disk:
+        disk_number: "{{ item.number }}"
+        partition_style: gpt
+      loop: "{{ uninitialized_disks }}"
+      when: uninitialized_disks | length > 0
