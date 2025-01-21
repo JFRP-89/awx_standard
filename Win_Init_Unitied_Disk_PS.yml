@@ -4,6 +4,6 @@
   tasks:
     - name: Initialize disk
       ansible.windows.win_shell: |
-        Initialize-Disk -Number 1 | Set-Disk -IsOffline $false
-        New-Partition -DiskNumber 1 -DriveLetter E -UseMaximumSize
-        Format-Volume -DriveLetter E -NewFileSystemLabel "Test"
+        Initialize-Disk -Number "{{ DiskNumber }}" | Set-Disk -IsOffline $false
+        New-Partition -DiskNumber "{{ DiskNumber }}" -DriveLetter "{{ DriveLetter }}" -UseMaximumSize
+        Format-Volume -DriveLetter "{{ DriveLetter }} -NewFileSystemLabel "{{ SystemName }}"
