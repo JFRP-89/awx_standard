@@ -1,0 +1,20 @@
+---
+- name: Initialize and format disk on Windows VM
+  hosts: windows
+  tasks:
+    - name: Initialize disk
+      ansible.windows.win_disk:
+        disk_number: 1  # Replace with the correct disk number
+        partition_style: GPT  # Options: GPT, MBR
+
+    - name: Create a new partition
+      ansible.windows.win_partition:
+        disk_number: 1
+        drive_letter: E  # Replace with desired drive letter
+        partition_size: 50GB  # Replace with desired size, or use 'max' for full size
+
+    - name: Format the partition
+      ansible.windows.win_format:
+        drive_letter: E
+        file_system: NTFS  # Options: NTFS, FAT32, exFAT
+        label: DataDisk  # Replace with desired volume label
