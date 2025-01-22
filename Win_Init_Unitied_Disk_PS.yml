@@ -1,6 +1,6 @@
 ---
 - name: Initialize and format disk on Windows VM
-  hosts: windows
+  hosts: all
   tasks:
     - name: Initialize disk
       ansible.windows.win_shell: |
