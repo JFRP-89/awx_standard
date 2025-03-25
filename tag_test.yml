@@ -11,11 +11,13 @@
     - name: Task Y (Runs if tagA is used)
       ansible.builtin.debug:
         msg: "Running Task Y"
+      when: "'tagA' in ansible_run_tags"
       tags: 
         - tagA
 
     - name: Task Z (Runs if tagB is used)
       ansible.builtin.debug:
         msg: "Running Task Z"
+      when: "'tagB' in ansible_run_tags"
       tags: 
         - tagB
