@@ -1,0 +1,20 @@
+---
+- name: Playbook with Tag Dependencies
+  hosts: all
+  tasks:
+    - name: Task X (Always runs)
+      ansible.builtin.debug:
+        msg: "Running Task X"
+      tags: always  # Ensures this always runs regardless of tags
+
+    - name: Task Y (Runs if tagA is used)
+      ansible.builtin.debug:
+        msg: "Running Task Y"
+      tags: 
+        - tagA
+
+    - name: Task Z (Runs if tagB is used)
+      ansible.builtin.debug:
+        msg: "Running Task Z"
+      tags: 
+        - tagB
