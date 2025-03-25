@@ -5,7 +5,8 @@
     - name: Task X (Always runs)
       ansible.builtin.debug:
         msg: "Running Task X"
-      tags: always  # Ensures this always runs regardless of tags
+      tags:
+        - always
 
     - name: Task Y (Runs if tagA is used)
       ansible.builtin.debug:
