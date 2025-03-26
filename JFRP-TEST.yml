@@ -1,10 +1,10 @@
 - name: Hello World Sample
   hosts: all
-  vars:
-    my_roles:
-      - JFRP
-      - JFRP-02
-      - JFRP-03
+  #vars:
+  #  my_roles:
+  #    - JFRP
+  #    - JFRP-02
+  #    - JFRP-03
   tasks:
     - name: Include roles dynamically
       ansible.builtin.include_role:
