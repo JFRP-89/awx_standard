@@ -1,4 +1,8 @@
 - name: Hello World Sample
   hosts: all
-  roles:
-    - JFRP
+  vars:
+    my_roles:
+      - JFRP
+      - JFRP-02
+      - JFRP-03
+  roles: "{{ my_roles }}"
