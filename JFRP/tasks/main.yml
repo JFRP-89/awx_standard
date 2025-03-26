@@ -1,6 +1,3 @@
-- name: Hello World Sample 02
-  hosts: all
-  tasks:
-    - name: Hello Message
-      debug:
-        msg: "Hello World! I'm JFRP!"
+- name: Hello Message
+  debug:
+    msg: "Hello World! I'm JFRP!"
