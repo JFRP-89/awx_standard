@@ -5,4 +5,8 @@
       - JFRP
       - JFRP-02
       - JFRP-03
-  roles: "{{ my_roles }}"
+  tasks:
+    - name: Include roles dynamically
+      ansible.builtin.include_role:
+        name: "{{ item }}"
+      loop: "{{ my_roles }}"
